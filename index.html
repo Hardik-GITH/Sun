@@ -9,31 +9,52 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
         }
 
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
         nav {
             background-color: #34495e;
             padding: 1rem;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 1rem;
-            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            color: #3498db;
+            background-color: #07816d;
         }
 
         section {
@@ -47,105 +68,142 @@
             display: block;
         }
 
-        .employee-grid {
+        .employee-grid,
+        .product-grid,
+        .video-grid,
+        .explore-product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .employee-card {
+        .employee-card,
+        .product-card,
+        .video-card,
+        .explore-product-card {
+            background-color: white;
             border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 10px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .employee-card img {
+        .employee-card:hover,
+        .product-card:hover,
+        .video-card:hover,
+        .explore-product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .employee-card img,
+        .product-card img,
+        .explore-product-card img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 1rem;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .product-card img,
+        .explore-product-card img {
+            border-radius: 10px;
         }
 
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .product-card img {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-card {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-
-        .contact-info {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-         /* Buy button styling */
-         .product-card button {
-            background-color: red; /* Updated to green */
+        .product-card button,
+        .explore-product-card button {
+            background-color: #e74c3c;
             color: white;
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
 
-        .product-card button:hover {
-            background-color: #27ae60; /* Darker shade of green for hover */
+        .product-card button:hover,
+        .explore-product-card button:hover {
+            background-color: #c0392b;
         }
 
-
-        .video-grid { /* Added styles for the video section */
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .video-card {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 8px;
+        .achievement-card {
             background-color: #f8f9fa;
-            text-align: center;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
         }
 
         .video-card video {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 1rem;
         }
 
         footer {
-            background-color: #2c3e50;
+            background-color: #010912;
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             margin-top: 2rem;
+        }
+
+        .explore-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .explore-more a {
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-more a:hover {
+            background-color: #2980b9;
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-button a {
+            background-color: #34495e;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: #2c3e50;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -159,40 +217,44 @@
         <a onclick="showSection('home')">Home</a>
         <a onclick="showSection('about')">About</a>
         <a onclick="showSection('products')">Products</a>
-        <a onclick="showSection('videos')">Videos</a> <!-- Added navigation for Videos -->
+        <a onclick="showSection('videos')">Videos</a>
         <a onclick="showSection('contact')">Contact</a>
-       
     </nav>
 
     <section id="home" class="active">
-        <h2></h2>
         <h2>Welcome to Sun Solution</h2>
+        <br>
         <p>Leading the way in technological innovation and manufacturing excellence.</p>
+        <br>
+        <p> We are committed to delivering high-quality products and services that meet the needs of our customers.</p>
+        <p> Our team of experienced professionals is dedicated to ensuring that every product we deliver is of the highest standard.</p>
+            
+        <br>
+        <h3>Our Location</h3>
 
-        <p>Our Team Member</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dlatitude!2dlongitude!3dzoom!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjQiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1621234567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <br>
+
+        <h3>Our Team Members</h3>
         <div class="employee-grid">
-            <!-- Employee Cards Here -->
-
             <div class="employee-card">
-                <img src="ceo.jpg" alt="CEO">
                 <h3>Deepak</h3>
-                <p> (CEO)Chief Executive Officer</p>
+                <p>Chief Executive Officer (CEO)</p>
                 <p>2+ years of industry experience</p>
             </div>
             <div class="employee-card">
-                <img src="cto.jpg" alt="CTO">
                 <h3>Mr Pawan</h3>
-                <p>(CTO)Chief Technology Officer</p>
+                <p>Chief Technology Officer (CTO)</p>
                 <p>28+ years in software development</p>
             </div>
             <div class="employee-card">
-                <img src="leading.jpg" alt="Leading Officer">
-                <h3>Mr Amit </h3>
+                <h3>Mr Amit</h3>
                 <p>Leading Officer</p>
                 <p>5+ years of leading excellence</p>
             </div>
             <div class="employee-card">
-                <img src="worker.jpg" alt="Worker of the company">
                 <h3>Workers</h3>
                 <p>Worker of the company</p>
                 <p>25+ in working & designing</p>
@@ -203,140 +265,23 @@
     <section id="products">
         <h2>Our Products</h2>
         <div class="product-grid">
-            <!-- Product Cards Here -->
-
             <div class="product-card">
                 <img src="dpu p1.jpg" alt="Product 1">
                 <h3>Milk DPU</h3>
-                <p>Data processing unit for milk collection </p>
+                <p>Data processing unit for milk collection</p>
                 <ul>
                     <li>12V power supply</li>
                     <li>Real-time analytics</li>
-                    <li>All features are available</li>
-                    <li>easy to operate</li>
-                    <li>Shift report upload and download on server & rate chart  </li>
+                    <li>Easy to operate</li>
                 </ul>
                 <p>Starting at Rs 7000</p>
-                  <!-- buy button k liya  -->
-                  <br>   <!-- ek line space k liya -->
-                <button onclick="buyProduct('Milk DPU', 'Rs 7000')">Buy Now</button>     
-                
+                <button onclick="buyProduct('Milk DPU', 'Rs 7000')">Buy Now</button>
             </div>
-            <div class="product-card">
-                <img src="PETROL p2.jpg" alt="Product 2">
-                <h3>4 gas analyzer</h3>
-                <p>PUC machine</p>
-                <p>Key Features:</p>
-                <ul>
-                    <li> RPM measure</li>
-                    <li>carbon dioxide (CO2)</li>
-                    <li>petrol, CNG, and LPG fuel testing</li>
-                    <li>measures the concentration of carbon monoxide (CO)</li>
-                    
-                </ul>
-                <p>Available</p>
-                <br>
-                <button onclick="buyProduct('4 gas analyzer')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="smok p3.jpg" alt="Product 3">
-                <h3>Diesel Smoke meter</h3>
-                <p>Available</p>
-                <p>Key Features:</p>
-                <ul>
-                    <p>24/7 ready to use </p>
-                    <p>Pollution detect</p>
-                    <p>Automated update</p>
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('Diesel Smoke meter')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="printer p4.jpg" alt="Product 4">
-                <h3>Thermal Receipt Printer</h3>
-                <ul>
-                    <p>voltage 5v to 9v</p>
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('Thermal Printer',)">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="sim module p5.jpg" alt="Product 5">
-                <h3>SIMA7670C 4G GSM</h3>
-                <p>Breakout Board </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('GSM module 4G')">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="sim micro p6.jpg" alt="Product 6">
-                <h3>SIMA7670C</h3>
-                <p>Microchip </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('Chip 4G')">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="dpu motherbod.jpg" alt="Product 7">
-                <h3>DPU Motherboard</h3>
-                <p>Best in Quality </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct(' DPU Motherboard', )">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="TM1637.jpg" alt="Product 8">
-                <h3>TM 1637 Chip</h3>
-                <p>Best in Quality </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct(' TM1637', )">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="7segment.jpg" alt="Product 9">
-                <h3>7 Segment Display </h3>
-                <p>Red Led Display </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('All type 7segment', )">Buy Now</button>
-            </div>
-
             <div class="product-card">
                 <img src="inductor coil.jpg" alt="Product 10">
                 <h3>SMD Inductor coil</h3>
                 <p>All size available </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
+              
                 <br>
                 <button onclick="buyProduct('Inductor coil', )">Buy Now</button>
             </div>
@@ -345,50 +290,47 @@
                 <img src="anteena.jpg" alt="Product 11">
                 <h3>WiFi Antenna + Cable</h3>
                 <p> All Size available </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
                 <br>
                 <button onclick="buyProduct('WiFi Antenna + Cable', )">Buy Now</button>
             </div>
-
-            <div class="product-card">
-                <img src="esp chip.jpg" alt="Product 12">
-                <h3>ESP8266 WiFi </h3>
-                <p> Microchip </p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('ESP8266 WiFi', )">Buy Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="dpu lcd.jpg" alt="Product 13">
-                <h3>DPU Lcd </h3>
-                <p> Display</p>
-                <p></p>
-                <ul>
-                    
-                </ul>
-                <p></p>
-                <br>
-                <button onclick="buyProduct('DPU lcd Display', )">Buy Now</button>
-            </div>
+            <!-- Add more product cards here -->
         </div>
-        
+        <div class="explore-more">
+            
+            <a href="https://sun-store.vercel.app/" target="_blank">Explore More Products using sun-store</a>
+        </div>
     </section>
+
+    <!-- New Section for Explore More Products --
+
+    <section id="explore-more-products">
+        <h2>Explore More Products</h2>
+        <div class="explore-product-grid">
+            <div class="explore-product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of Product 1</p>
+                <button onclick="buyProduct('Product 1', 'Rs 5000')">Buy Now</button>
+            </div>
+            <div class="explore-product-card">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of Product 2</p>
+                <button onclick="buyProduct('Product 2', 'Rs 6000')">Buy Now</button>
+            </div>
+            <-- Add more explore product cards here
+        </div>
+        <div class="back-button">
+            <a onclick="showSection('products')">Back to Products</a>
+        </div>
+    </section>
+                                    -->
 
     <section id="about">
         <h2>About Our Company</h2>
-        <p>Sun Solution has been at the fore front of technological innovation since 2010. We specialize in creating Final products.  R&D of new products.</p>
-        <p>we specialized in Manufacturing of Customized Scientific Instruments as per the requirements and specifications provided. </p>
+        <p>Sun Solution has been at the forefront of technological innovation since 2010. We specialize in creating final products and R&D of new products.</p>
+        <p>We are experts in manufacturing customized scientific instruments as per the requirements and specifications provided.</p>
 
-        <!-- Achievements and Stats about -->
         <h3>Our Achievements</h3>
         <div class="achievement-card">
             <h4>Industry Leadership Award 2024</h4>
@@ -402,7 +344,7 @@
             <h4>Innovation Excellence 2022</h4>
             <p>Awarded for breakthrough developments in AI integration</p>
         </div>
-        
+
         <h3>Company Stats</h3>
         <div class="achievement-card">
             <p>✓ 500+ Enterprise Clients</p>
@@ -411,48 +353,40 @@
         </div>
     </section>
 
-    <!-- New Video Section Added -->
-    <section id="videos"> <!-- Highlighted Section Start -->
+    <section id="videos">
         <h2>Our Videos</h2>
         <p>Explore our latest product demonstrations, tutorials, and more:</p>
         <div class="video-grid">
-
-            <!-- Video Card 1 -->
             <div class="video-card">
                 <video controls>
                     <source src="printer vd1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3> Thermal Receipt Printer</h3>
+                <h3>Thermal Receipt Printer</h3>
             </div>
-
-            <!-- Video Card 2 -->
             <div class="video-card">
                 <video controls>
                     <source src="production.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Productions House</h3>
+                <h3>Production House</h3>
             </div>
         </div>
-    </section> <!-- Highlighted Section End -->
+    </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-info">
             <h3>Get in Touch</h3>
-            <p> Contact us through any of these channels:</p>
-            <br>
+            <p>Contact us through any of these channels:</p>
             <p>📞 Phone: <a href="tel:+917404832473" style="color: #8b0bed; font-weight: bold; text-decoration: none;">(+91) 7404832473</a></p>
             <p>📧 Email: <a href="mailto:sunsolution001@gmail.com">sunsolution001@gmail.com</a></p>
-            <p>📷 Instagram: <a href="https://www.instagram.com/sunsolution2025/" target="_blank">  Sun Solution 2025</a></p>
+            <p>📷 Instagram: <a href="https://www.instagram.com/sunsolution2025/" target="_blank">Sun Solution 2025</a></p>
             <p>▶️ YouTube: <a href="https://youtube.com/channel/your_channel_id" target="_blank">Sun Solution Channel</a></p>
             <p>📍 Address: Plot No. 212, Phase- V, Sector -56, Kundli, Sonipat, Haryana 131028</p>
-            <br>
-            <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM </p>
-            
+            <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM</p>
             <h3>Regional Offices</h3>
-            <p>Kundli | Gurgoan | Delhi |</p>
+            <p>Kundli | Gurgoan | Delhi</p>
         </div>
     </section>
 
@@ -462,24 +396,19 @@
 
     <script>
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
-
-            // Show the selected section
             document.getElementById(sectionId).classList.add('active');
         }
 
         function buyProduct(productName, productPrice) {
-            // Open WhatsApp with pre-filled message
-            const phoneNumber = "+917404832473"; // Replace with your WhatsApp number
+            const phoneNumber = "+917404832473";
             const message = `Hello, I am interested in purchasing:\n\nProduct: ${productName}\nPrice: ${productPrice}\n\nPlease provide more details.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
 
-        // Show home section by default
         showSection('home');
     </script>
 </body>
