@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="website fav icon" href="./dpu.png" type="png" >
+    <link rel="website fav icon" href="./dpu.png" type="png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sun Solution</title>
@@ -114,7 +114,7 @@
 
         /* Change the background color of employee cards */
         .employee-card {
-            background-color:   #d1f2eb; /* Light yellow background */
+            background-color: #d1f2eb; /* Light yellow background */
             border: 1px solid #8b8000; /* Dark yellow border */
         }
 
@@ -250,6 +250,55 @@
             border: 0;
             border-radius: 10px;
         }
+
+        /* Style the contact form */
+        .contact-form {
+            margin-top: 2rem;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: #3498db; /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #2980b9; /* Darker blue */
+        }
     </style>
 </head>
 <body>
@@ -276,17 +325,15 @@
         <br>
         <p> We are committed to delivering high-quality products and services that meet the needs of our customers.</p>
         <p> Our team of experienced professionals is dedicated to ensuring that every product we deliver is of the highest standard.</p>
-            
+
         <br>
         <h3>Our Location</h3>
 
-        <!-- Map Container -->
+        <!-- Map Container with Rai, Sonipat Location Pin -->
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.123456789012!2d77.0187!3d28.9945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjQiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1621234567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <br>
-
-       
 
         <!-- Our Services Section -->
         <br>
@@ -309,32 +356,43 @@
                 <p>Expert consulting to optimize your operations and processes.</p>
             </div>
         </div>
-    
 
-     <!-- Our Team Members Section -->
-     <h3>Our Team Members</h3>
-     <div class="employee-grid">
-         <div class="employee-card">
-             <h3> Mr Deepak</h3>
-             <p>Chief Executive Officer (CEO)</p>
-             <p>2+ years of industry experience</p>
-         </div>
-         <div class="employee-card">
-             <h3>Mr Hariom</h3>
-             <p>Chief Technology Officer (CTO)</p>
-             <p>28+ years in software development</p>
-         </div>
-         <div class="employee-card">
-             <h3>Mr Amit</h3>
-             <p>Leading Officer</p>
-             <p>5+ years of leading excellence</p>
-         </div>
-         <div class="employee-card">
-             <h3>Workers</h3>
-             <p>Worker of the company</p>
-             <p>25+ in working & designing</p>
-         </div>
-     </div>
+        <!-- Our Team Members Section -->
+        <h3>Our Team Members</h3>
+        <div class="employee-grid">
+            <div class="employee-card">
+                <h3> Mr Deepak</h3>
+                <p>Chief Executive Officer (CEO)</p>
+                <p>2+ years of industry experience</p>
+            </div>
+            <div class="employee-card">
+                <h3>Mr Hariom</h3>
+                <p>Chief Technology Officer (CTO)</p>
+                <p>28+ years in software development</p>
+            </div>
+            <div class="employee-card">
+                <h3>Mr Amit</h3>
+                <p>Leading Officer</p>
+                <p>5+ years of leading excellence</p>
+            </div>
+            <div class="employee-card">
+                <h3>Workers</h3>
+                <p>Worker of the company</p>
+                <p>25+ in working & designing</p>
+            </div>
+        </div>
+
+        <!-- WhatsApp Contact Form on Home Page -->
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form id="whatsappFormHome">
+                <input type="text" id="nameHome" placeholder="Your Name" required>
+                <input type="email" id="emailHome" placeholder="Your Email" required>
+                <input type="tel" id="phoneHome" placeholder="Your Phone Number" required>
+                <textarea id="messageHome" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send via WhatsApp</button>
+            </form>
+        </div>
     </section>
 
     <!-- Products Section -->
@@ -468,6 +526,23 @@
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`; // Create WhatsApp URL
             window.open(whatsappURL, '_blank'); // Open WhatsApp in a new tab
         }
+
+        // Function to handle the WhatsApp form submission on Home Page
+        document.getElementById('whatsappFormHome').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const name = document.getElementById('nameHome').value;
+            const email = document.getElementById('emailHome').value;
+            const phone = document.getElementById('phoneHome').value;
+            const message = document.getElementById('messageHome').value;
+
+            // Create the WhatsApp message
+            const whatsappMessage = `Hello, I would like to contact you.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+
+            // Open WhatsApp with the pre-filled message
+            window.open(`https://wa.me/7404832473?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        });
 
         // Show the home section by default when the page loads
         showSection('home');
