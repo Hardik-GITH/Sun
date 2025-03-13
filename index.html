@@ -157,6 +157,13 @@
             margin: 1rem 0;
             border-radius: 10px;
             border-left: 4px solid #3498db;
+            cursor: pointer; /* Make achievement cards clickable */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Add hover effect to achievement cards */
+        .achievement-card:hover {
+            background-color: #e9ecef;
         }
 
         /* Style the contact information section */
@@ -341,12 +348,13 @@
         <a onclick="showSection('about')">About</a>
         <a onclick="showSection('products')">Products</a>
         <a onclick="showSection('videos')">Videos</a>
-        <a onclick="showSection('gallery')">Gallery</a> <!-- New Gallery Section -->
+        <a onclick="showSection('gallery')">Gallery</a>
         <a onclick="showSection('contact')">Contact</a>
     </nav>
 
     <!-- Home Section -->
     <section id="home" class="active">
+        <!-- Add your existing Home section content here -->
         <h2>Welcome to Sun Solution</h2>
         <br>
         <p>Leading the way in technological innovation and manufacturing excellence.</p>
@@ -426,6 +434,7 @@
 
     <!-- Products Section -->
     <section id="products">
+        <!-- Add your existing Products section content here -->
         <h2>Our Products</h2>
         <div class="product-grid">
             <div class="product-card">
@@ -502,17 +511,17 @@
         <p>We are experts in manufacturing customized scientific instruments as per the requirements and specifications provided.</p>
 
         <h3>Our Achievements</h3>
-        <div class="achievement-card">
+        <div class="achievement-card" onclick="openCertificate('award1.jpg')">
             <h4>Industry Leadership Award 2024</h4>
             <p>Recognized for outstanding contribution to cloud computing solutions</p>
         </div>
-        <div class="achievement-card">
+        <div class="achievement-card" onclick="openCertificate('award2.jpg')">
             <h4>Best Workplace Award 2023</h4>
             <p>Ranked among top 10 tech companies for employee satisfaction</p>
         </div>
-        <div class="achievement-card">
-            <h4>Innovation Excellence 2022</h4>
-            <p>Awarded for breakthrough developments in AI integration</p>
+        <div class="achievement-card" onclick="openCertificate('award3.jpg')">
+            <h4>Best Product </h4>
+            <p>Awarded for best product developments in AI integration</p>
         </div>
 
         <h3>Company Stats</h3>
@@ -525,6 +534,7 @@
 
     <!-- Videos Section -->
     <section id="videos">
+        <!-- Add your existing Videos section content here -->
         <h2>Our Videos</h2>
         <p>Explore our latest product demonstrations, tutorials, and more:</p>
         <div class="video-grid">
@@ -556,6 +566,7 @@
 
     <!-- Gallery Section -->
     <section id="gallery">
+        <!-- Add your existing Gallery section content here -->
         <h2>Image Gallery</h2>
         <p>Explore our collection of images showcasing our products, team, and facilities.</p>
         <div class="image-gallery-grid">
@@ -629,15 +640,12 @@
                 <img src="p10.jpg" alt="Image 18" onclick="openModal('p10.jpg')">
                 <p>DPU</p>
             </div>
-            
-
-
-            <!-- Add more image cards here -->
-        </div>
+            </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
+        <!-- Add your existing Contact section content here -->
         <h2>Contact Us</h2>
         <div class="contact-info">
             <h3>Get in Touch</h3>
@@ -658,7 +666,7 @@
         <p>&copy; 2025 Sun Solution. All rights reserved.</p>
     </footer>
 
-    <!-- Modal for full-size images -->
+    <!-- Modal for full-size images and certificates -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
@@ -667,50 +675,40 @@
     <script>
         // Function to show a specific section and hide others
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Show the selected section
             document.getElementById(sectionId).classList.add('active');
         }
 
         // Function to handle the "Buy Now" button click
         function buyProduct(productName, productPrice) {
-            const phoneNumber = "+917404832473"; // Company's WhatsApp number
+            const phoneNumber = "+917404832473";
             const message = `Hello, I am interested in purchasing:\n\nProduct: ${productName}\nPrice: ${productPrice}\n\nPlease provide more details.`;
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`; // Create WhatsApp URL
-            window.open(whatsappURL, '_blank'); // Open WhatsApp in a new tab
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
         }
 
         // Function to handle the WhatsApp form submission on Home Page
         document.getElementById('whatsappFormHome').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form values
+            event.preventDefault();
             const name = document.getElementById('nameHome').value;
             const email = document.getElementById('emailHome').value;
             const phone = document.getElementById('phoneHome').value;
             const message = document.getElementById('messageHome').value;
-
-            // Create the WhatsApp message
             const whatsappMessage = `Hello, I would like to contact you.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
-
-            // Open WhatsApp with the pre-filled message
             window.open(`https://wa.me/7404832473?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
         });
 
-        // Show the home section by default when the page loads
-        showSection('home');
-
-        // Modal functionality
-        function openModal(imageSrc) {
+        // Function to open certificate image in a modal
+        function openCertificate(imageSrc) {
             const modal = document.getElementById('myModal');
             const modalImg = document.getElementById('img01');
             modal.style.display = 'block';
             modalImg.src = imageSrc;
         }
 
+        // Function to close the modal
         function closeModal() {
             const modal = document.getElementById('myModal');
             modal.style.display = 'none';
@@ -723,6 +721,9 @@
                 modal.style.display = 'none';
             }
         }
+
+        // Show the home section by default when the page loads
+        showSection('home');
     </script>
 </body>
 </html>
