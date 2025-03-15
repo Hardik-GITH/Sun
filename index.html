@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sun Solution</title>
     <style>
-        /* Reset default margin and padding for all elements */
-        * {
+        /* Add your existing CSS styles here */
+           /* Reset default margin and padding for all elements */
+           * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -333,6 +334,127 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Style for the search bar */
+        .search-bar {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .search-bar button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Style for the search results */
+        .search-results {
+            margin-top: 2rem;
+        }
+
+        .search-results .product-card {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        /* Style for related images */
+        .related-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .related-images img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .related-images img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Swipe buttons */
+        .swipe-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .swipe-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .swipe-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -434,78 +556,91 @@
 
     <!-- Products Section -->
     <section id="products">
-        <!-- Add your existing Products section content here -->
         <h2>Our Products</h2>
-        <div class="product-grid">
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a product...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <!-- Search Results -->
+        <div class="search-results" id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be dynamically inserted here -->
             <div class="product-card">
-                <img src="dpu p1.jpg" alt="Product 1">
-                <h3>Milk DPU</h3>
-                <p>Data processing unit for milk collection</p>
-                <ul>
-                    <p>12V power supply</p>
-                    <p>Real-time analytics</p>
-                    <p>Easy to operate</p>
-                </ul>
-                <p>Starting at Rs 10,000</p>
-                <button onclick="buyProduct('Milk DPU', 'Rs 10,000')">Buy Now</button>
-                <!-- Add the "Features" button -->
-                <button onclick="window.open('https://dpu-featurs.vercel.app/', '_blank')" style="margin-top: 10px; background-color: #3498db;">Features</button>
-            </div>
-            <div class="product-card">
-                <img src="PETROL p2.jpg" alt="Product 2">
-                <h3>4 gas analyzer</h3>
-                <p>ARAI approved equipment</p>
-                <p>All Features available </p>
-                <br>
-                <button onclick="buyProduct('4 gas analyzer')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="smok p3.jpg" alt="Product 3">
-                <h3>Smoke meter</h3>
-                <p>ARAI approved equipment</p>
-                <p> All Features available </p>
-                <br>
-                <button onclick="buyProduct('Smoke meter')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="printer.jpg" alt="Product 4">
-                <h3>Thermal Receipt Printer</h3>
-                <p>voltage 5v to 9v</p>
-                <p>Size 2 inch paper</p>
-                <br>
-                <button onclick="buyProduct('Printer')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="3.5 PI LCD.jpg" alt="Product 5">
-                <h3>3.5" Touch screen LCD</h3>
-                <p>Raspberry Pi Display</p>
-                <br>
-                <button onclick="buyProduct('lcd screen')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="wifi.jpg" alt="Product 6">
-                <h3>DPU WiFi</h3>
-                <p>SUN  approved equipment</p>
-                <br>
-                <button onclick="buyProduct('WiFi')">Buy Now</button>
-            </div>
-            <div class="product-card">
-                <img src="tm1637.jpg" alt="Product 7">
-                <h3>TM1637 Chip</h3>
-                <p>SMD</p>
-                <br>
-                <button onclick="buyProduct('TM1637')">Buy Now</button>
-            </div>
-            
-            <!-- Add more product cards here -->
+            <img src="dpu p1.jpg" alt="Product 1">
+            <h3>Milk DPU</h3>
+            <p>Data processing unit for milk collection</p>
+            <ul>
+                <p>12V power supply</p>
+                <p>Real-time analytics</p>
+                <p>Easy to operate</p>
+            </ul>
+            <p>Starting at Rs 10,000</p>
+            <button onclick="buyProduct('Milk DPU', 'Rs 10,000')">Buy Now</button>
+            <!-- Add the "Features" button -->
+            <button onclick="window.open('https://dpu-featurs.vercel.app/', '_blank')" style="margin-top: 10px; background-color: #3498db;">Features</button>
+        </div>
+        <div class="product-card">
+            <img src="PETROL p2.jpg" alt="Product 2">
+            <h3>4 gas analyzer</h3>
+            <p>ARAI approved equipment</p>
+            <p>All Features available </p>
+            <br>
+            <button onclick="buyProduct('4 gas analyzer')">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="smok p3.jpg" alt="Product 3">
+            <h3>Smoke meter</h3>
+            <p>ARAI approved equipment</p>
+            <p> All Features available </p>
+            <br>
+            <button onclick="buyProduct('Smoke meter')">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="printer.jpg" alt="Product 4">
+            <h3>Thermal Receipt Printer</h3>
+            <p>voltage 5v to 9v</p>
+            <p>Size 2 inch paper</p>
+            <br>
+            <button onclick="buyProduct('Printer')">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="3.5 PI LCD.jpg" alt="Product 5">
+            <h3>3.5" Touch screen LCD</h3>
+            <p>Raspberry Pi Display</p>
+            <br>
+            <button onclick="buyProduct('lcd screen')">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="wifi.jpg" alt="Product 6">
+            <h3>DPU WiFi</h3>
+            <p>SUN  approved equipment</p>
+            <br>
+            <button onclick="buyProduct('WiFi')">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="tm1637.jpg" alt="Product 7">
+            <h3>TM1637 Chip</h3>
+            <p>SMD</p>
+            <br>
+            <button onclick="buyProduct('TM1637')">Buy Now</button>
+        </div>
+       
         </div>
         <div class="explore-more">
-            <a href="https://sun-store.vercel.app/" target="_blank">click for More Products </a>
+            <a href="https://sun-store.vercel.app/" target="_blank">Click for More Products</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
+        <!-- Add your existing About section content here -->
         <h2>About Our Company</h2>
         <p>Sun Solution has been at the forefront of technological innovation since 2010. We specialize in creating final products and R&D of new products.</p>
         <p>We are experts in manufacturing customized scientific instruments as per the requirements and specifications provided.</p>
@@ -660,6 +795,7 @@
             <p>Rai | Gurgoan | Delhi</p>
         </div>
     </section>
+    </section>
 
     <!-- Footer Section -->
     <footer>
@@ -669,10 +805,193 @@
     <!-- Modal for full-size images and certificates -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
+        <div class="swipe-buttons">
+            <button onclick="prevImage()">&#10094;</button>
+            <button onclick="nextImage()">&#10095;</button>
+        </div>
         <img class="modal-content" id="img01">
     </div>
 
     <script>
+        // Array of products
+        const products = [
+            {
+                image: "dpu p1.jpg",
+                name: "Milk DPU",
+                description: "Data processing unit for milk collection",
+                features: ["12V power supply", "Real-time analytics", "Easy to operate"],
+                price: "Starting at Rs 10,000",
+                featuresLink: "https://dpu-featurs.vercel.app/",
+                relatedImages: ["dpu p1.jpg", "p2.jpg", "p3.jpg"] // Related images for Milk DPU
+            },
+            {
+                image: "PETROL p2.jpg",
+                name: "4 gas analyzer",
+                description: "ARAI approved equipment",
+                features: ["All Features available"],
+                price: "",
+                relatedImages: ["PETROL p2.jpg"]
+            },
+            {
+                image: "smok p3.jpg",
+                name: "Smoke meter",
+                description: "ARAI approved equipment",
+                features: ["All Features available"],
+                price: "",
+                relatedImages: ["smok p3.jpg"]
+            },
+            {
+                image: "printer.jpg",
+                name: "Thermal Receipt Printer",
+                description: "Voltage 5V to 9V",
+                features: ["Size 2 inch paper"],
+                price: "",
+                relatedImages: ["printer.jpg"]
+            },
+            {
+                image: "3.5 PI LCD.jpg",
+                name: "3.5\" Touch screen LCD",
+                description: "Raspberry Pi Display",
+                features: [],
+                price: "",
+                relatedImages: ["3.5 PI LCD.jpg"]
+            },
+            {
+                image: "wifi.jpg",
+                name: "DPU WiFi",
+                description: "SUN approved equipment",
+                features: [],
+                price: "",
+                relatedImages: ["wifi.jpg"]
+            },
+            {
+                image: "tm1637.jpg",
+                name: "TM1637 Chip",
+                description: "SMD",
+                features: [],
+                price: "",
+                relatedImages: ["tm1637.jpg"]
+            }
+        ];
+
+        // Variables for image swipe functionality
+        let currentImageIndex = 0;
+        let currentProduct = null;
+
+        // Function to shuffle the products array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to render products
+        function renderProducts() {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = ''; // Clear existing products
+
+            // Shuffle the products array
+            const shuffledProducts = shuffleArray(products);
+
+            // Render each product
+            shuffledProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <ul>
+                        ${product.features.map(feature => `<p>${feature}</p>`).join('')}
+                    </ul>
+                    <p>${product.price}</p>
+                    <button onclick="buyProduct('${product.name}', '${product.price}')">Buy Now</button>
+                    ${product.featuresLink ? `<button onclick="window.open('${product.featuresLink}', '_blank')" style="margin-top: 10px; background-color: #3498db;">Features</button>` : ''}
+                `;
+
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Function to search for a product
+        function searchProduct() {
+            const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Clear previous search results
+
+            if (!searchInput) {
+                alert("Please enter a product name to search.");
+                return;
+            }
+
+            const foundProducts = products.filter(product => product.name.toLowerCase().includes(searchInput));
+
+            if (foundProducts.length > 0) {
+                foundProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" onclick="openImageModal('${product.image}', ${JSON.stringify(product.relatedImages)})">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <ul>
+                            ${product.features.map(feature => `<p>${feature}</p>`).join('')}
+                        </ul>
+                        <p>${product.price}</p>
+                        <button onclick="buyProduct('${product.name}', '${product.price}')">Buy Now</button>
+                        ${product.featuresLink ? `<button onclick="window.open('${product.featuresLink}', '_blank')" style="margin-top: 10px; background-color: #3498db;">Features</button>` : ''}
+                        <h4>Related Images</h4>
+                        <div class="related-images">
+                            ${product.relatedImages.map(image => `<img src="${image}" alt="${product.name}" onclick="openImageModal('${image}', ${JSON.stringify(product.relatedImages)})">`).join('')}
+                        </div>
+                    `;
+
+                    searchResults.appendChild(productCard);
+                });
+            } else {
+                searchResults.innerHTML = `<p>No product found with the name "${searchInput}".</p>`;
+            }
+        }
+
+        // Function to open the image modal
+        function openImageModal(imageSrc, relatedImages) {
+            currentProduct = relatedImages;
+            currentImageIndex = relatedImages.indexOf(imageSrc);
+            const modal = document.getElementById('myModal');
+            const modalImg = document.getElementById('img01');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        // Function to show the previous image
+        function prevImage() {
+            if (currentProduct && currentProduct.length > 0) {
+                currentImageIndex = (currentImageIndex - 1 + currentProduct.length) % currentProduct.length;
+                document.getElementById('img01').src = currentProduct[currentImageIndex];
+            }
+        }
+
+        // Function to show the next image
+        function nextImage() {
+            if (currentProduct && currentProduct.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % currentProduct.length;
+                document.getElementById('img01').src = currentProduct[currentImageIndex];
+            }
+        }
+
+        // Render products when the page loads
+        renderProducts();
+
         // Function to show a specific section and hide others
         function showSection(sectionId) {
             document.querySelectorAll('section').forEach(section => {
@@ -699,28 +1018,6 @@
             const whatsappMessage = `Hello, I would like to contact you.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
             window.open(`https://wa.me/7404832473?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
         });
-
-        // Function to open certificate image in a modal
-        function openCertificate(imageSrc) {
-            const modal = document.getElementById('myModal');
-            const modalImg = document.getElementById('img01');
-            modal.style.display = 'block';
-            modalImg.src = imageSrc;
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            const modal = document.getElementById('myModal');
-            modal.style.display = 'none';
-        }
-
-        // Close modal when clicking outside the image
-        window.onclick = function(event) {
-            const modal = document.getElementById('myModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
 
         // Show the home section by default when the page loads
         showSection('products');
