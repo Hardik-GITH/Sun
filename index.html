@@ -7,9 +7,7 @@
     <title>Sun Solution</title>
     <style>
         /* Add your existing CSS styles here */
-        /* ... (keep all existing styles) ... */
-          /* Reset default margin and padding for all elements */
-          * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -518,6 +516,27 @@
         .swipe-buttons button:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        /* Style for additional buttons in the contact section */
+        .additional-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .additional-links a {
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0.5rem;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .additional-links a:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
@@ -694,15 +713,13 @@
             <br>
             <button onclick="buyProduct('TM1637')">Buy Now</button>
         </div>
-       
         </div>
-        <div class="explore-more">
-            <a href="https://sun-store.vercel.app/" target="_blank">Click for More Products</a>
-        </div> 
+       
     </section>
 
     <!-- About Section -->
     <section id="about">
+        <!-- Add your existing About section content here -->
         <h2>About Our Company</h2>
         <p>Sun Solution has been at the forefront of technological innovation since 2010. We specialize in creating final products and R&D of new products.</p>
         <p>We are experts in manufacturing customized scientific instruments as per the requirements and specifications provided.</p>
@@ -763,6 +780,7 @@
 
     <!-- Gallery Section -->
     <section id="gallery">
+        <!-- Add your existing Gallery section content here -->
         <h2>Image Gallery</h2>
         <p>Explore our collection of images showcasing our products, team, and facilities.</p>
         <div class="image-gallery-grid">
@@ -839,7 +857,6 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <!-- Add your existing Contact section content here -->
         <h2>Contact Us</h2>
         <div class="contact-info">
             <h3>Get in Touch</h3>
@@ -852,6 +869,12 @@
             <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM</p>
             <h3>Regional Offices</h3>
             <p>Rai | Gurgoan | Delhi</p>
+        </div>
+
+        <!-- Additional Links Buttons -->
+        <div class="additional-links">
+            <a href="https://sunsolution.my.canva.site/" target="_blank">Visit Our Canva Site</a>
+            <a href="https://milkdpu.blogspot.com/" target="_blank">Visit Milk DPU Blog</a>
         </div>
     </section>
 
